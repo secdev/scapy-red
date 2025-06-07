@@ -1,0 +1,55 @@
+[build-system]
+requires = [ "setuptools>=62.0.0" ]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "scapy-red"
+version = "0.0.2"
+dynamic = [ "readme" ]
+authors = [
+    { name="Gabriel POTTER" },
+]
+license = "GPL-2.0-only"
+requires-python = ">=3.7, <4"
+description = "Scapy RED - tools and scripts for pentesters"
+keywords = [ "network" ]
+dependencies = [
+    "scapy",
+    "scapy-rpc",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Framework :: Scapy Plugin",
+    "Intended Audience :: Information Technology",
+    "Intended Audience :: System Administrators",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Security",
+    "Topic :: System :: Networking",
+]
+
+[project.urls]
+Homepage = "https://github.com/gpotter2/scapy-red"
+Download = "https://github.com/gpotter2/scapy-red/tarball/master"
+"Source Code" = "https://github.com/gpotter2/scapy-red"
+Changelog = "https://github.com/gpotter2/scapy-red/releases"
+
+[tool.setuptools.packages.find]
+include = [ 
+    "scapyred",
+]  
+
+[project.scripts]
+scapy-dominfo   = "scapyred.dominfo:main"
+scapy-listips   = "scapyred.listips:main"
+scapy-ldaphero  = "scapyred.ldaphero:main"
+scapy-smbclient = "scapyred.smbclient:main"
+scapy-smbscan   = "scapyred.smbscan:main"

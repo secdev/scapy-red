@@ -1,0 +1,11 @@
+*.pyc
+*.pyo
+dist/
+build/
+MANIFEST
+*.egg-info/
+.vscode
+.DS_Store
+[.]venv/
+__pycache__/
+.tox/
