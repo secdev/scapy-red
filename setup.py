@@ -21,10 +21,12 @@ def get_long_description():
     """
     Extract description from README.md, for PyPI's usage
     """
+
     def process_ignore_tags(buffer):
         return "\n".join(
             x for x in buffer.split("\n") if "<!-- ignore_ppi -->" not in x
         )
+
     try:
         fpath = os.path.join(os.path.dirname(__file__), "README.md")
         with io.open(fpath, encoding="utf-8") as f:
@@ -38,5 +40,5 @@ def get_long_description():
 
 setup(
     long_description=get_long_description(),
-    long_description_content_type='text/markdown',
+    long_description_content_type="text/markdown",
 )
