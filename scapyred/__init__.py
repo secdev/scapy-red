@@ -7,8 +7,6 @@
 Scapy RED plugin
 """
 
-import pathlib
-
 __version__ = "0.0.2"
 
 
