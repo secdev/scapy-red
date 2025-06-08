@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # SPDX-License-Identifier: GPL-2.0-only
-# This file is part of Scapy
+# This file is part of Scapy RED
 # See https://scapy.net/ for more information
 
-# Check that all Scapy files have a SPDX
+# Check that all Scapy RED files have a SPDX
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
-ROOT_DIR=$SCRIPT_DIR/../..
+ROOT_DIR=$SCRIPT_DIR/..
 
 # http://mywiki.wooledge.org/BashFAQ/024
 # This documents an absolutely WTF behavior of bash.
@@ -28,4 +28,4 @@ function check_path() {
     return $RCODE
 }
 
-check_path scapy py || exit $?
+check_path scapyred py || exit $?
