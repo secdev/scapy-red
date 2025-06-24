@@ -158,19 +158,9 @@ def dominfo(realm: str, timeout: int = 3):
         results = []
         for x in pkt[LDAP].protocolOp.attributes:
             typ = x.type.val.decode()
-            if typ == "Netlogon":
-                continue
-            if typ.endswith("Functionality"):
-                results.append((typ, FUNCTIONAL[int(x.values[0].value.val)]))
-            else:
-                results.append((typ, [y.value.val.decode() for y in x.values]))
-        if isinstance(pkt.protocolOp, LDAP_SearchResponseEntry):
-            try:
-                netlogon = next(
-                    NETLOGON_SAM_LOGON_RESPONSE_EX(x.values[0].value.val)
-                    for x in pkt.protocolOp.attributes
-                    if x.type.val == b"Netlogon"
-                )
+            # Parse the result depending on the type
+            if typ.lower() == "netlogon":
+                netlogon = NETLOGON_SAM_LOGON_RESPONSE_EX(x.values[0].value.val)
                 for fld in [
                     "DnsForestName",
                     "DnsDomainName",
@@ -184,14 +174,12 @@ def dominfo(realm: str, timeout: int = 3):
                 ]:
                     results.append((fld, netlogon.getfieldval(fld).decode()))
                 results.append(("DomainGuid", netlogon.sprintf("%DomainGuid%")))
-            except StopIteration:
-                pass
-            try:
-                rootDomainNamingContext = next(
-                    x.values[0].value.val
-                    for x in pkt.protocolOp.attributes
-                    if x.type.val == b"rootDomainNamingContext"
-                )
+                continue
+            elif typ.lower().endswith("functionality"):
+                i = int(x.values[0].value.val)
+                results.append((typ, FUNCTIONAL.get(i, str(i))))
+            elif typ.lower() == "rootdomainnamingcontext":
+                rootDomainNamingContext = x.values[0].value.val
                 if m := re.search(b"<SID=([^>]+)>", rootDomainNamingContext):
                     results.append(
                         (
@@ -201,8 +189,8 @@ def dominfo(realm: str, timeout: int = 3):
                             ),
                         )
                     )
-            except StopIteration:
-                pass
+            else:
+                results.append((typ, [y.value.val.decode() for y in x.values]))
         print(pretty_list(results, [("Attribute", "Value")]))
     sock.close()
 
