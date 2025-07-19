@@ -22,7 +22,6 @@ from scapy.layers.ldap import (
     LDAP_FilterAnd,
     LDAP_SearchRequestAttribute,
     LDAP_Control,
-    LDAP_SearchResponseEntry,
     NETLOGON_SAM_LOGON_RESPONSE_EX,
     dclocator,
 )
