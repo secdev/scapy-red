@@ -7,8 +7,14 @@
 Scapy RED plugin
 """
 
-__version__ = "0.0.2"
+import pathlib
+
+__version__ = "0.0.3"
 
 
-def scapy_ext(plg):
-    plg.config("Scapy RED", __version__)
+def scapy_ext(pkg):
+    pkg.config("Scapy RED", __version__)
+
+    # Add completions
+    for completion in (pathlib.Path(__file__).parent / "completions").glob("scapy-*"):
+        pkg.register_bashcompletion(completion)

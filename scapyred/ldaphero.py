@@ -19,5 +19,8 @@ def main():
     AutoArgparse(LDAPHero)
 
 
+# For autocompletion generation
+AUTOCOMPLETE_GEN = LDAPHero
+
 if __name__ == "__main__":
     main()

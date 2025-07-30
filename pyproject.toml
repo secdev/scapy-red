@@ -1,10 +1,10 @@
 [build-system]
-requires = [ "setuptools>=62.0.0" ]
+requires = [ "setuptools>=62.0.0", "scapy" ]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "scapy-red"
-version = "0.0.2"
+version = "0.0.3"
 dynamic = [ "readme" ]
 authors = [
     { name="Gabriel POTTER" },
@@ -20,12 +20,10 @@ dependencies = [
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Environment :: Console",
-    "Framework :: Scapy Plugin",
     "Intended Audience :: Information Technology",
     "Intended Audience :: System Administrators",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3 :: Only",
-    "Programming Language :: Python :: 3.7",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
@@ -37,15 +35,13 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/gpotter2/scapy-red"
-Download = "https://github.com/gpotter2/scapy-red/tarball/master"
-"Source Code" = "https://github.com/gpotter2/scapy-red"
-Changelog = "https://github.com/gpotter2/scapy-red/releases"
+Homepage = "https://github.com/secdev/scapy-red"
+Download = "https://github.com/secdev/scapy-red/tarball/master"
+"Source Code" = "https://github.com/secdev/scapy-red"
+Changelog = "https://github.com/secdev/scapy-red/releases"
 
 [tool.setuptools.packages.find]
-include = [ 
-    "scapyred",
-]  
+include = [ "scapyred", "scapyred.completions" ]
 
 [project.scripts]
 scapy-dominfo   = "scapyred.dominfo:main"

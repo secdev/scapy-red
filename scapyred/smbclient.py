@@ -19,5 +19,8 @@ def main():
     AutoArgparse(smbclient)
 
 
+# For autocompletion generation
+AUTOCOMPLETE_GEN = smbclient
+
 if __name__ == "__main__":
     main()

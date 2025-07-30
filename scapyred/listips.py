@@ -94,5 +94,8 @@ def main():
     AutoArgparse(listips)
 
 
+# For autocompletion generation
+AUTOCOMPLETE_GEN = listips
+
 if __name__ == "__main__":
     main()

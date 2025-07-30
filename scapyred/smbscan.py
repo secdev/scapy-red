@@ -192,5 +192,8 @@ def main():
     AutoArgparse(smb_scan_winver)
 
 
+# For autocompletion generation
+AUTOCOMPLETE_GEN = smb_scan_winver
+
 if __name__ == "__main__":
     main()

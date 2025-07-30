@@ -203,5 +203,8 @@ def main():
     AutoArgparse(dominfo)
 
 
+# For autocompletion generation
+AUTOCOMPLETE_GEN = dominfo
+
 if __name__ == "__main__":
     main()
