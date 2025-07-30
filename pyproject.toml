@@ -1,6 +1,6 @@
 [build-system]
 requires = [
-    "setuptools>=62.0.0",
+    "setuptools>=77.0.0",
     "scapy@git+https://github.com/secdev/scapy.git#sha1=57390355713d34e6e426efdcf53d9b51ee97e74f",
 ]
 build-backend = "setuptools.build_meta"
@@ -13,7 +13,7 @@ authors = [
     { name="Gabriel POTTER" },
 ]
 license = "GPL-2.0-only"
-requires-python = ">=3.7, <4"
+requires-python = ">=3.11, <4"
 description = "Scapy RED - tools and scripts for pentesters"
 keywords = [ "network" ]
 dependencies = [
@@ -27,9 +27,6 @@ classifiers = [
     "Intended Audience :: System Administrators",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3 :: Only",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
