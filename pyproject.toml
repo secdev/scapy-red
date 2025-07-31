@@ -1,7 +1,7 @@
 [build-system]
 requires = [
     "setuptools>=77.0.0",
-    "scapy@git+https://github.com/secdev/scapy.git#sha1=57390355713d34e6e426efdcf53d9b51ee97e74f",
+    "scapy@git+https://github.com/secdev/scapy.git#sha1=cc8e09187407cefce61207823239c2d5749bf046",
 ]
 build-backend = "setuptools.build_meta"
 
